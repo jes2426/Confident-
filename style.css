@@ -1,0 +1,95 @@
+*{box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;}
+html,body{margin:0;height:100%;}
+.hidden{display:none!important;}
+/* --- Pantallas de autenticación --- */
+.auth-screen{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;background:#19bf6b;color:#fff;text-align:center;}
+.auth-screen .logo{width:120px;height:120px;background:url('https://i.ibb.co/PcPwBz8/bike.png')center/contain no-repeat;}
+.auth-screen input{width:100%;max-width:260px;padding:12px;border-radius:8px;border:none;}
+.password-wrapper{position:relative;width:100%;max-width:260px;}
+.password-wrapper input{width:100%;}
+.toggle-eye{position:absolute;right:8px;top:11px;color:#666;cursor:pointer;}
+.auth-screen button{padding:12px 24px;border:none;border-radius:20px;background:#fff;color:#19bf6b;font-weight:bold;cursor:pointer;}
+.social-row i{font-size:28px;margin:0 6px;cursor:pointer;}
+.alt-link{font-size:0.9rem;text-decoration:underline;cursor:pointer;}
+
+/* --- App --- */
+#app{display:flex;flex-direction:column;height:100%;}
+header{background:#19bf6b;color:#fff;padding:8px 12px;}
+header h3{margin:4px 0;text-align:center;font-weight:400;}
+.info-card{background:#00c56e;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;}
+.stats p{margin:4px;font-size:0.8rem;}
+.stats span{font-weight:bold;}
+.user-card{display:flex;align-items:center;gap:6px;background:#008f4d;padding:6px;border-radius:4px;}
+.user-card img{width:48px;height:48px;border-radius:50%;object-fit:cover;}
+.search-row{display:flex;gap:4px;margin-top:6px;}
+.search-row input{flex:1;padding:6px;border:none;border-radius:4px;}
+.search-row button{background:#fff;border:none;border-radius:4px;width:36px;cursor:pointer;}
+
+#map{flex:1;}
+
+/* --- Navegación inferior --- */
+#bottomNav{display:flex;justify-content:space-around;background:#19bf6b;color:#fff;padding:6px 0;}
+#bottomNav button{flex:1;background:none;border:none;color:#fff;display:flex;flex-direction:column;align-items:center;font-size:0.75rem;gap:4px;cursor:pointer;padding:6px 0;}
+#bottomNav button i{font-size:20px;}
+#bottomNav button.active{background:#008f4d;}
+
+/* --- Panel de productos --- */
+#productPanel{position:absolute;top:0;left:0;right:0;bottom:0;background:#f7f7f7;z-index:5000;display:flex;flex-direction:column;align-items:center;overflow-y:auto;}
+#productHeader{padding:12px 0;font-weight:bold;text-transform:uppercase;background:#19bf6b;color:#fff;width:100%;text-align:center;}
+#productList{list-style:none;padding:0;margin:0;width:100%;max-width:340px;}
+#productList li{display:flex;align-items:center;gap:12px;background:#fff;margin:6px 12px;border-radius:14px;padding:10px;box-shadow:0 2px 4px rgba(0,0,0,0.08);}
+#productList img{width:60px;height:60px;border-radius:8px;object-fit:cover;}
+.back-btn{margin:12px 0 20px;padding:10px 24px;border:none;background:#19bf6b;color:#fff;border-radius:24px;font-weight:bold;cursor:pointer;}
+
+/* --- Pánico (sin cambios) --- */
+#fullPanic{position:fixed;top:0;left:0;right:0;bottom:0;background:#b71c1c;color:#fff;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.panic-top{position:absolute;top:20px;text-align:center;}
+.panic-center button{background:#000;border:none;border-radius:50%;width:150px;height:150px;color:#fff;font-weight:bold;font-size:1rem;cursor:pointer;box-shadow:0 0 12px rgba(0,0,0,0.6);}
+
+/* --- Modal --- */
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);display:flex;justify-content:center;align-items:center;}
+.modal-content{background:#fff;padding:20px;border-radius:8px;text-align:center;width:260px;}
+.modal-content h3{margin-top:0;color:#d9534f;}
+.modal-content button{margin-top:12px;padding:8px 16px;border:none;background:#19bf6b;color:#fff;border-radius:6px;cursor:pointer;}
+.modal.red .modal-content{background:#b71c1c;color:#fff;}
+.modal .danger{margin-top:12px;padding:10px 20px;background:#000;color:#fff;border:none;border-radius:6px;cursor:pointer;}
+.modal .close{margin-top:8px;padding:6px 18px;border:none;background:#777;color:#fff;border-radius:4px;cursor:pointer;}
+
+.upload-label{display:inline-block;padding:10px 16px;background:#fff;color:#19bf6b;border-radius:20px;cursor:pointer;font-size:0.9rem;}
+.upload-label i{margin-right:6px;}
+.photo-name{font-size:0.75rem;color:#fff;margin-top:4px;}
+/* --- Panel de refacciones --- */
+#refacPanel{position:absolute;top:0;left:0;right:0;bottom:0;background:#f7f7f7;z-index:5000;display:flex;flex-direction:column;align-items:center;overflow-y:auto;}
+#refacHeader{padding:12px 0;font-weight:bold;text-transform:uppercase;background:#19bf6b;color:#fff;width:100%;text-align:center;}
+#refacList{list-style:none;padding:0;margin:0;width:100%;max-width:340px;}
+#refacList li{display:flex;align-items:center;gap:12px;background:#fff;margin:6px 12px;border-radius:14px;padding:10px;box-shadow:0 2px 4px rgba(0,0,0,0.08);}
+#refacList img{width:60px;height:60px;border-radius:8px;object-fit:cover;}
+
+
+/* --- Panel de rutas --- */
+#routePanel{position:absolute;top:0;left:0;right:0;bottom:0;background:#f7f7f7;z-index:5000;display:flex;flex-direction:column;align-items:center;overflow-y:auto;}
+#routeHeader{padding:12px 0;font-weight:bold;text-transform:uppercase;background:#19bf6b;color:#fff;width:100%;text-align:center;}
+#routeList{list-style:none;padding:0;margin:0;width:100%;max-width:340px;}
+#routeList li{display:flex;align-items:center;gap:12px;background:#fff;margin:6px 12px;border-radius:14px;padding:10px;box-shadow:0 2px 4px rgba(0,0,0,0.08);}
+#routeList img{width:60px;height:60px;border-radius:8px;object-fit:cover;}
+
+
+/* --- Perfil ciclista --- */
+#profilePanel{position:absolute;top:0;left:0;right:0;bottom:0;background:#f8f8f8;display:flex;flex-direction:column;align-items:center;overflow-y:auto;}
+#profileHeader{padding:12px 0;font-weight:bold;text-transform:uppercase;background:#19bf6b;color:#fff;width:100%;text-align:center;}
+#friendsSidebar{position:absolute;left:0;top:60px;background:#19bf6b;border-top-right-radius:20px;border-bottom-right-radius:20px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;}
+#friendsSidebar .friends-title{writing-mode:vertical-rl;transform:rotate(180deg);margin:0;font-weight:bold;color:#fff;letter-spacing:2px;}
+#friendsList{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;}
+#friendsList img{width:40px;height:40px;border-radius:50%;object-fit:cover;}
+#addFriendBtn{width:40px;height:40px;border-radius:50%;border:none;background:#fff;color:#19bf6b;font-weight:bold;cursor:pointer;}
+#profileContent{margin-top:80px;width:100%;max-width:340px;display:flex;flex-direction:column;align-items:center;padding:0 12px;}
+.profilePic{width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 4px 6px rgba(0,0,0,0.2);}
+.progressContainer{width:100%;max-width:320px;margin:12px 0;}
+.progress{height:8px;background:#ccc;border-radius:4px;position:relative;}
+.progress span{display:block;height:100%;background:#19bf6b;border-radius:4px;}
+.progressLabels{display:flex;justify-content:space-between;font-size:0.75rem;color:#555;margin-top:2px;}
+.statsRow{display:flex;gap:14px;margin:12px 0;width:100%;}
+.statBox{flex:1;background:#19bf6b;color:#fff;border-radius:14px;padding:10px 14px;text-align:center;}
+.statBox small{display:block;font-size:0.7rem;}
+.statBox strong{font-size:1.2rem;}
+#weeklyChart{width:100%;max-width:280px;height:160px;margin:4px 0;border:2px solid #19bf6b;border-radius:14px;padding:6px;background:#fff;}

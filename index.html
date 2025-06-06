@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Confident Rider</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!-- === Autenticación === -->
+<section id="loginScreen" class="auth-screen">
+  <div class="logo"></div><h2>Confident Rider</h2>
+  <input id="loginUser" type="text" placeholder="usuario / correo">
+  <div class="password-wrapper">
+    <input id="loginPass" type="password" placeholder="contraseña">
+    <i class="fa-regular fa-eye toggle-eye" data-target="loginPass"></i>
+  </div>
+  <button id="btnLogin">Iniciar sesión</button>
+  <p>o inicia con</p>
+  <div class="social-row">
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-x-twitter"></i>
+    <i class="fa-brands fa-instagram"></i>
+  </div>
+  <p class="alt-link" id="showRegister">¿No tienes cuenta? Regístrate</p>
+</section>
+
+<section id="registerScreen" class="auth-screen hidden">
+  <div class="logo"></div><h2>Confident Rider</h2>
+  <input id="regName" type="text" placeholder="nombre">
+  <input id="regEmail" type="email" placeholder="correo">
+  <div class="password-wrapper">
+    <input id="regPass" type="password" placeholder="contraseña">
+    <i class="fa-regular fa-eye toggle-eye" data-target="regPass"></i>
+  </div>
+  <div class="password-wrapper">
+    <input id="regPass2" type="password" placeholder="repite contraseña">
+    <i class="fa-regular fa-eye toggle-eye" data-target="regPass2"></i>
+  </div>
+  <label class="upload-label">
+    <input id="regPhoto" type="file" accept="image/*" hidden>
+    <i class="fa-solid fa-image"></i> Seleccionar foto de perfil
+  </label>
+  <p id="photoName" class="photo-name"></p>
+  <button id="btnRegister">Registrar</button>
+  <p>o regístrate con</p>
+  <div class="social-row">
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-x-twitter"></i>
+    <i class="fa-brands fa-instagram"></i>
+  </div>
+  <p class="alt-link" id="showLogin">¿Ya tienes cuenta? Inicia sesión</p>
+</section>
+
+<!-- === Aplicación principal === -->
+<section id="app" class="hidden">
+  <header>
+    <h3>confident rider <i class="fa-solid fa-bicycle"></i></h3>
+    <div class="info-card">
+      <div class="stats">
+        <p>Distancia<br><span id="distanceVal">14,53 km</span></p>
+        <p>Dificultad técnica<br><span id="difficultyVal">Moderado</span></p>
+      </div>
+      <div class="user-card">
+        <img id="avatarImg" src="https://i.pravatar.cc/60?img=12">
+        <div><strong id="userName">Valery</strong><br>Ciclista<br>Nivel 3</div>
+      </div>
+    </div>
+    <div class="search-row">
+      <button id="drawerBtn"><i class="fa-solid fa-bars"></i></button>
+      <input id="searchBox" placeholder="Hinted search text">
+      <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </header>
+
+  <!-- Mapa -->
+  <div id="map"></div>
+
+  <!-- Panel de productos -->
+  <div id="productPanel" class="hidden">
+    <div id="productHeader">Productos para ciclistas</div>
+    <ul id="productList"></ul>
+    <button id="productBack" class="back-btn">Regresar</button>
+  </div>
+
+  <!-- Panel de refaccionarias (sigue igual) -->
+  <div id="refacPanel" class="hidden">
+    <div id="refacHeader">Refacciones para bicicleta</div>
+    <ul id="refacList"></ul>
+    <button id="refacBack" class="back-btn">Regresar</button>
+  </div>
+
+  
+  <!-- Panel de rutas -->
+  <div id="routePanel" class="hidden">
+    <div id="routeHeader">Rutas para ciclismo</div>
+    <ul id="routeList"></ul>
+    <button id="routeBack" class="back-btn">Regresar</button>
+  </div>
+
+
+<!-- Panel de perfil -->
+<div id="profilePanel" class="hidden">
+  <div id="profileHeader">Perfil ciclista</div>
+
+  <aside id="friendsSidebar">
+    <p class="friends-title">AMIGOS</p>
+    <ul id="friendsList"></ul>
+    <button id="addFriendBtn" class="friend-add">+1</button>
+  </aside>
+
+  <div id="profileContent">
+    <img id="profilePic" class="profilePic" src="https://i.pravatar.cc/160?img=12" alt="Foto perfil">
+    <h2 id="profileName">Valery</h2>
+    <p id="profileRole">Ciclista</p>
+    <p id="profileLevel">Nivel 3</p>
+
+    <div class="progressContainer">
+      <div class="progress"><span id="progressBar" style="width:30%"></span></div>
+      <div class="progressLabels"><span>nivel 3</span><span>nivel 4</span></div>
+    </div>
+
+    <canvas id="weeklyChart" width="250" height="160"></canvas>
+
+    <div class="statsRow">
+      <div class="statBox">
+        <small>Distancia</small>
+        <strong id="statDistance">14,53 km</strong>
+      </div>
+      <div class="statBox">
+        <small>Dificultad técnica</small>
+        <strong id="statDifficulty">Moderado</strong>
+      </div>
+    </div>
+  </div>
+
+  <button id="profileBack" class="back-btn">Regresar</button>
+</div>
+
+<nav id="bottomNav">
+    <button data-tab="equipo"><i class="fa-solid fa-store"></i><span>equipo</span></button>
+    <button data-tab="rutas"><i class="fa-solid fa-map"></i><span>rutas</span></button>
+    <button data-tab="alertas"><i class="fa-solid fa-triangle-exclamation"></i><span>alertas</span></button>
+    <button data-tab="refacciones"><i class="fa-solid fa-screwdriver-wrench"></i><span>refacciones</span></button>
+    <button data-tab="zona"><i class="fa-solid fa-check-double"></i><span>zona</span></button>
+  </nav>
+</section>
+
+<!-- === Pánico === -->
+<div id="fullPanic" class="hidden">
+  <div class="panic-top"><h2>Modo Alerta</h2></div>
+  <div class="panic-center">
+    <button id="panicSend">BOTÓN DE PÁNICO</button>
+  </div>
+</div>
+<div id="panicModal" class="modal hidden">
+  <div class="modal-content red">
+     <h3>Botón de Pánico</h3>
+     <p>¿Enviar alerta de emergencia?</p>
+     <button id="sendPanic" class="danger">ENVIAR</button>
+     <button id="closePanic" class="close">Cancelar</button>
+  </div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5ffkx9HnBZle4LJ4fUgSjUSFJ3_cN8Xk&libraries=places&callback=initMapWrapper"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js" defer></script>
+</body>
+</html>
